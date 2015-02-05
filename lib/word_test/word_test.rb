@@ -1,19 +1,30 @@
-require './list_hash'
+require './word_test/list_hash'
 
 class WordTest
 	def write_sequences(input_name, sequence_file, word_file)
+		puts input_name
+		puts sequence_file
+		puts word_file
 		begin
 			input_file = File.new input_name, "r"
-
+			sequence_output = File.new sequence_file, "w"
+			word_output = File.new word_file, "w"
 			list_hash = build_list input_file
-			
-			sequence_output = File.open sequence_output, "w"
-			word_output = File.open word_output, "w"
-		rescue IOError
+
+			list_hash.each_pair do |sequence, words|
+				if words.length == 1
+					sequence_output.write sequence + "\n"
+					word_output.write words[0] + "\n"
+				end
+			end
+		ensure
+			input_file.close
 			sequence_output.close
 			word_output.close
 		end
 	end
+
+	private
 
 	def build_list(input_io)
 		list_hash = ListHash.new
@@ -46,7 +57,7 @@ class WordTest
 			slice_range = 0..range_max
 			slice_range.each do |index|
 				key = word.slice index, seq_length
-				keys << key
+				keys << key.downcase
 			end
 		end
 		keys

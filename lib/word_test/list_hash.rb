@@ -1,6 +1,6 @@
 class ListHash < Hash
-	def intialize
-		super.default = Array.new
+	def initialize
+		self.default = Array.new
 	end
 
 	def add(key, value)
