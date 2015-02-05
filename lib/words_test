@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.dirname(__FILE__)
+
+require './word_test/word_test'
+
+dictionary = ARGV[0]
+sequence_file = ARGV[1] || "./sequences"
+word_file = ARGV[2] || "./words"
+
+test = WordTest.new
+if dictionary.nil? || dictionary.empty?
+	STDERR.puts "Usage: \e[1msequence\e[0m dictionary_file [sequence_file] [word_file]"
+else
+	test.write_sequences dictionary, sequence_file, word_file
+end

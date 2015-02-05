@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-
-require './word_test/word_test'
-
-test = WordTest.new
-test.write_sequences ARGV[0], ARGV[1], ARGV[2]

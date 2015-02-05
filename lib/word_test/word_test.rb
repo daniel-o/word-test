@@ -1,10 +1,7 @@
-require './word_test/list_hash'
+require 'word_test/list_hash'
 
 class WordTest
 	def write_sequences(input_name, sequence_file, word_file)
-		puts input_name
-		puts sequence_file
-		puts word_file
 		begin
 			input_file = File.new input_name, "r"
 			sequence_output = File.new sequence_file, "w"
