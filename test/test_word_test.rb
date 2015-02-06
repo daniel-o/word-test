@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "word_test"
+require "word_test/word_test"
 require "stringio"
 
 class TestWordTest < Minitest::Unit::TestCase

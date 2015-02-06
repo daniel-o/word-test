@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "list_hash"
+require "word_test/list_hash"
 
 class TestListHash < Minitest::Unit::TestCase
 	def test_initialize_default

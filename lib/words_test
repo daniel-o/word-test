@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift File.dirname(__FILE__)
 
-require './word_test/word_test'
+require 'word_test/word_test'
 
 dictionary = ARGV[0]
 sequence_file = ARGV[1] || "./sequences"
